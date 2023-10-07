@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message Organization {
+    string id = 1;
+    string name = 2;
+    repeated Environment environments = 3;
+}
+
+message Environment {
+    string id = 1;
+    string name = 2;
+}
+
+message Flag {
+    string path = 1;
+    string value = 2;
+}
+
+message FlagList {
+    repeated Flag flags = 1;
+}
