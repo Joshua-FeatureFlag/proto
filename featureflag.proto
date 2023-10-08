@@ -13,6 +13,7 @@ message Organization {
   int64 id = 1;
   string name = 2;
   repeated User users = 3;
+  int64 organization_id = 4;
 }
 
 service UserService {
