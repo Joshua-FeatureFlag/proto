@@ -5,12 +5,12 @@ package featureflag;
 option go_package = "github.com/Joshua-FeatureFlag/proto/featureflag;featureflag";
 
 message User {
-  int32 id = 1;
+  int64 id = 1;
   string name = 2;
 }
 
 message Organization {
-  int32 id = 1;
+  int64 id = 1;
   string name = 2;
   repeated User users = 3;
 }
