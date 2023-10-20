@@ -4,28 +4,14 @@ package featureflag;
 
 option go_package = "github.com/Joshua-FeatureFlag/proto/featureflag;featureflag";
 
-message User {
+message FeatureFlag {
   int64 id = 1;
   string name = 2;
-  int64 organization_id = 4;
 }
 
-message Organization {
-  int64 id = 1;
-  string name = 2;
-  repeated User users = 3;
-}
-
-service UserService {
-  rpc CreateUser (User) returns (User);
-  rpc GetUser (User) returns (User);
-  rpc UpdateUser (User) returns (User);
-  rpc DeleteUser (User) returns (User);
-}
-
-service OrganizationService {
-  rpc CreateOrganization (Organization) returns (Organization);
-  rpc GetOrganization (Organization) returns (Organization);
-  rpc UpdateOrganization (Organization) returns (Organization);
-  rpc DeleteOrganization (Organization) returns (Organization);
+service FeatureFlagService {
+  rpc CreateUser (FeatureFlag) returns (FeatureFlag);
+  rpc GetUser (FeatureFlag) returns (FeatureFlag);
+  rpc UpdateUser (FeatureFlag) returns (FeatureFlag);
+  rpc DeleteUser (FeatureFlag) returns (FeatureFlag);
 }

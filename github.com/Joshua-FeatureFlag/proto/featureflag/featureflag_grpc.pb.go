@@ -18,388 +18,194 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// UserServiceClient is the client API for UserService service.
+// FeatureFlagServiceClient is the client API for FeatureFlagService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UserServiceClient interface {
-	CreateUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
-	GetUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
-	UpdateUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
-	DeleteUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+type FeatureFlagServiceClient interface {
+	CreateUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error)
+	GetUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error)
+	UpdateUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error)
+	DeleteUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error)
 }
 
-type userServiceClient struct {
+type featureFlagServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
-	return &userServiceClient{cc}
+func NewFeatureFlagServiceClient(cc grpc.ClientConnInterface) FeatureFlagServiceClient {
+	return &featureFlagServiceClient{cc}
 }
 
-func (c *userServiceClient) CreateUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
-	out := new(User)
-	err := c.cc.Invoke(ctx, "/featureflag.UserService/CreateUser", in, out, opts...)
+func (c *featureFlagServiceClient) CreateUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error) {
+	out := new(FeatureFlag)
+	err := c.cc.Invoke(ctx, "/featureflag.FeatureFlagService/CreateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userServiceClient) GetUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
-	out := new(User)
-	err := c.cc.Invoke(ctx, "/featureflag.UserService/GetUser", in, out, opts...)
+func (c *featureFlagServiceClient) GetUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error) {
+	out := new(FeatureFlag)
+	err := c.cc.Invoke(ctx, "/featureflag.FeatureFlagService/GetUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
-	out := new(User)
-	err := c.cc.Invoke(ctx, "/featureflag.UserService/UpdateUser", in, out, opts...)
+func (c *featureFlagServiceClient) UpdateUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error) {
+	out := new(FeatureFlag)
+	err := c.cc.Invoke(ctx, "/featureflag.FeatureFlagService/UpdateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userServiceClient) DeleteUser(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
-	out := new(User)
-	err := c.cc.Invoke(ctx, "/featureflag.UserService/DeleteUser", in, out, opts...)
+func (c *featureFlagServiceClient) DeleteUser(ctx context.Context, in *FeatureFlag, opts ...grpc.CallOption) (*FeatureFlag, error) {
+	out := new(FeatureFlag)
+	err := c.cc.Invoke(ctx, "/featureflag.FeatureFlagService/DeleteUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UserServiceServer is the server API for UserService service.
-// All implementations must embed UnimplementedUserServiceServer
+// FeatureFlagServiceServer is the server API for FeatureFlagService service.
+// All implementations must embed UnimplementedFeatureFlagServiceServer
 // for forward compatibility
-type UserServiceServer interface {
-	CreateUser(context.Context, *User) (*User, error)
-	GetUser(context.Context, *User) (*User, error)
-	UpdateUser(context.Context, *User) (*User, error)
-	DeleteUser(context.Context, *User) (*User, error)
-	mustEmbedUnimplementedUserServiceServer()
+type FeatureFlagServiceServer interface {
+	CreateUser(context.Context, *FeatureFlag) (*FeatureFlag, error)
+	GetUser(context.Context, *FeatureFlag) (*FeatureFlag, error)
+	UpdateUser(context.Context, *FeatureFlag) (*FeatureFlag, error)
+	DeleteUser(context.Context, *FeatureFlag) (*FeatureFlag, error)
+	mustEmbedUnimplementedFeatureFlagServiceServer()
 }
 
-// UnimplementedUserServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedUserServiceServer struct {
+// UnimplementedFeatureFlagServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedFeatureFlagServiceServer struct {
 }
 
-func (UnimplementedUserServiceServer) CreateUser(context.Context, *User) (*User, error) {
+func (UnimplementedFeatureFlagServiceServer) CreateUser(context.Context, *FeatureFlag) (*FeatureFlag, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
 }
-func (UnimplementedUserServiceServer) GetUser(context.Context, *User) (*User, error) {
+func (UnimplementedFeatureFlagServiceServer) GetUser(context.Context, *FeatureFlag) (*FeatureFlag, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateUser(context.Context, *User) (*User, error) {
+func (UnimplementedFeatureFlagServiceServer) UpdateUser(context.Context, *FeatureFlag) (*FeatureFlag, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedUserServiceServer) DeleteUser(context.Context, *User) (*User, error) {
+func (UnimplementedFeatureFlagServiceServer) DeleteUser(context.Context, *FeatureFlag) (*FeatureFlag, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
 }
-func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
+func (UnimplementedFeatureFlagServiceServer) mustEmbedUnimplementedFeatureFlagServiceServer() {}
 
-// UnsafeUserServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UserServiceServer will
+// UnsafeFeatureFlagServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FeatureFlagServiceServer will
 // result in compilation errors.
-type UnsafeUserServiceServer interface {
-	mustEmbedUnimplementedUserServiceServer()
+type UnsafeFeatureFlagServiceServer interface {
+	mustEmbedUnimplementedFeatureFlagServiceServer()
 }
 
-func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
-	s.RegisterService(&UserService_ServiceDesc, srv)
+func RegisterFeatureFlagServiceServer(s grpc.ServiceRegistrar, srv FeatureFlagServiceServer) {
+	s.RegisterService(&FeatureFlagService_ServiceDesc, srv)
 }
 
-func _UserService_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(User)
+func _FeatureFlagService_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FeatureFlag)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).CreateUser(ctx, in)
+		return srv.(FeatureFlagServiceServer).CreateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/featureflag.UserService/CreateUser",
+		FullMethod: "/featureflag.FeatureFlagService/CreateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).CreateUser(ctx, req.(*User))
+		return srv.(FeatureFlagServiceServer).CreateUser(ctx, req.(*FeatureFlag))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(User)
+func _FeatureFlagService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FeatureFlag)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).GetUser(ctx, in)
+		return srv.(FeatureFlagServiceServer).GetUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/featureflag.UserService/GetUser",
+		FullMethod: "/featureflag.FeatureFlagService/GetUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetUser(ctx, req.(*User))
+		return srv.(FeatureFlagServiceServer).GetUser(ctx, req.(*FeatureFlag))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(User)
+func _FeatureFlagService_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FeatureFlag)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateUser(ctx, in)
+		return srv.(FeatureFlagServiceServer).UpdateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/featureflag.UserService/UpdateUser",
+		FullMethod: "/featureflag.FeatureFlagService/UpdateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateUser(ctx, req.(*User))
+		return srv.(FeatureFlagServiceServer).UpdateUser(ctx, req.(*FeatureFlag))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(User)
+func _FeatureFlagService_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FeatureFlag)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).DeleteUser(ctx, in)
+		return srv.(FeatureFlagServiceServer).DeleteUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/featureflag.UserService/DeleteUser",
+		FullMethod: "/featureflag.FeatureFlagService/DeleteUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).DeleteUser(ctx, req.(*User))
+		return srv.(FeatureFlagServiceServer).DeleteUser(ctx, req.(*FeatureFlag))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UserService_ServiceDesc is the grpc.ServiceDesc for UserService service.
+// FeatureFlagService_ServiceDesc is the grpc.ServiceDesc for FeatureFlagService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "featureflag.UserService",
-	HandlerType: (*UserServiceServer)(nil),
+var FeatureFlagService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "featureflag.FeatureFlagService",
+	HandlerType: (*FeatureFlagServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateUser",
-			Handler:    _UserService_CreateUser_Handler,
+			Handler:    _FeatureFlagService_CreateUser_Handler,
 		},
 		{
 			MethodName: "GetUser",
-			Handler:    _UserService_GetUser_Handler,
+			Handler:    _FeatureFlagService_GetUser_Handler,
 		},
 		{
 			MethodName: "UpdateUser",
-			Handler:    _UserService_UpdateUser_Handler,
+			Handler:    _FeatureFlagService_UpdateUser_Handler,
 		},
 		{
 			MethodName: "DeleteUser",
-			Handler:    _UserService_DeleteUser_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "featureflag.proto",
-}
-
-// OrganizationServiceClient is the client API for OrganizationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OrganizationServiceClient interface {
-	CreateOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error)
-	GetOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error)
-	UpdateOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error)
-	DeleteOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error)
-}
-
-type organizationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOrganizationServiceClient(cc grpc.ClientConnInterface) OrganizationServiceClient {
-	return &organizationServiceClient{cc}
-}
-
-func (c *organizationServiceClient) CreateOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error) {
-	out := new(Organization)
-	err := c.cc.Invoke(ctx, "/featureflag.OrganizationService/CreateOrganization", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *organizationServiceClient) GetOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error) {
-	out := new(Organization)
-	err := c.cc.Invoke(ctx, "/featureflag.OrganizationService/GetOrganization", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *organizationServiceClient) UpdateOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error) {
-	out := new(Organization)
-	err := c.cc.Invoke(ctx, "/featureflag.OrganizationService/UpdateOrganization", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *organizationServiceClient) DeleteOrganization(ctx context.Context, in *Organization, opts ...grpc.CallOption) (*Organization, error) {
-	out := new(Organization)
-	err := c.cc.Invoke(ctx, "/featureflag.OrganizationService/DeleteOrganization", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OrganizationServiceServer is the server API for OrganizationService service.
-// All implementations must embed UnimplementedOrganizationServiceServer
-// for forward compatibility
-type OrganizationServiceServer interface {
-	CreateOrganization(context.Context, *Organization) (*Organization, error)
-	GetOrganization(context.Context, *Organization) (*Organization, error)
-	UpdateOrganization(context.Context, *Organization) (*Organization, error)
-	DeleteOrganization(context.Context, *Organization) (*Organization, error)
-	mustEmbedUnimplementedOrganizationServiceServer()
-}
-
-// UnimplementedOrganizationServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedOrganizationServiceServer struct {
-}
-
-func (UnimplementedOrganizationServiceServer) CreateOrganization(context.Context, *Organization) (*Organization, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
-}
-func (UnimplementedOrganizationServiceServer) GetOrganization(context.Context, *Organization) (*Organization, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
-}
-func (UnimplementedOrganizationServiceServer) UpdateOrganization(context.Context, *Organization) (*Organization, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
-}
-func (UnimplementedOrganizationServiceServer) DeleteOrganization(context.Context, *Organization) (*Organization, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteOrganization not implemented")
-}
-func (UnimplementedOrganizationServiceServer) mustEmbedUnimplementedOrganizationServiceServer() {}
-
-// UnsafeOrganizationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OrganizationServiceServer will
-// result in compilation errors.
-type UnsafeOrganizationServiceServer interface {
-	mustEmbedUnimplementedOrganizationServiceServer()
-}
-
-func RegisterOrganizationServiceServer(s grpc.ServiceRegistrar, srv OrganizationServiceServer) {
-	s.RegisterService(&OrganizationService_ServiceDesc, srv)
-}
-
-func _OrganizationService_CreateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Organization)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OrganizationServiceServer).CreateOrganization(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/featureflag.OrganizationService/CreateOrganization",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizationServiceServer).CreateOrganization(ctx, req.(*Organization))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OrganizationService_GetOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Organization)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OrganizationServiceServer).GetOrganization(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/featureflag.OrganizationService/GetOrganization",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizationServiceServer).GetOrganization(ctx, req.(*Organization))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OrganizationService_UpdateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Organization)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OrganizationServiceServer).UpdateOrganization(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/featureflag.OrganizationService/UpdateOrganization",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizationServiceServer).UpdateOrganization(ctx, req.(*Organization))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OrganizationService_DeleteOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Organization)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OrganizationServiceServer).DeleteOrganization(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/featureflag.OrganizationService/DeleteOrganization",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizationServiceServer).DeleteOrganization(ctx, req.(*Organization))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OrganizationService_ServiceDesc is the grpc.ServiceDesc for OrganizationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OrganizationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "featureflag.OrganizationService",
-	HandlerType: (*OrganizationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateOrganization",
-			Handler:    _OrganizationService_CreateOrganization_Handler,
-		},
-		{
-			MethodName: "GetOrganization",
-			Handler:    _OrganizationService_GetOrganization_Handler,
-		},
-		{
-			MethodName: "UpdateOrganization",
-			Handler:    _OrganizationService_UpdateOrganization_Handler,
-		},
-		{
-			MethodName: "DeleteOrganization",
-			Handler:    _OrganizationService_DeleteOrganization_Handler,
+			Handler:    _FeatureFlagService_DeleteUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
