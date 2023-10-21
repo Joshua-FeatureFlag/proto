@@ -1,4 +1,4 @@
-# Systemproto.V1Organization
+# FeatureFlag.V1Organization
 
 ## Properties
 Name | Type | Description | Notes

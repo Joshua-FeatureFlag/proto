@@ -1,4 +1,4 @@
-# Systemproto.OrganizationServiceApi
+# FeatureFlag.OrganizationServiceApi
 
 All URIs are relative to */*
 
@@ -17,10 +17,21 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-import {Systemproto} from 'systemproto';
+import {FeatureFlag} from 'feature_flag';
+let defaultClient = FeatureFlag.ApiClient.instance;
 
-let apiInstance = new Systemproto.OrganizationServiceApi();
-let body = new Systemproto.V1Organization(); // V1Organization | 
+// Configure API key authorization: BearerAuth
+let BearerAuth = defaultClient.authentications['BearerAuth'];
+BearerAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerAuth.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: OAuth2
+let OAuth2 = defaultClient.authentications['OAuth2'];
+OAuth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new FeatureFlag.OrganizationServiceApi();
+let body = new FeatureFlag.V1Organization(); // V1Organization | 
 
 apiInstance.organizationServiceCreateOrganization(body, (error, data, response) => {
   if (error) {
@@ -43,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -58,9 +69,20 @@ No authorization required
 
 ### Example
 ```javascript
-import {Systemproto} from 'systemproto';
+import {FeatureFlag} from 'feature_flag';
+let defaultClient = FeatureFlag.ApiClient.instance;
 
-let apiInstance = new Systemproto.OrganizationServiceApi();
+// Configure API key authorization: BearerAuth
+let BearerAuth = defaultClient.authentications['BearerAuth'];
+BearerAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerAuth.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: OAuth2
+let OAuth2 = defaultClient.authentications['OAuth2'];
+OAuth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new FeatureFlag.OrganizationServiceApi();
 let id = "id_example"; // String | 
 let opts = { 
   'name': "name_example" // String | 
@@ -87,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -102,9 +124,20 @@ No authorization required
 
 ### Example
 ```javascript
-import {Systemproto} from 'systemproto';
+import {FeatureFlag} from 'feature_flag';
+let defaultClient = FeatureFlag.ApiClient.instance;
 
-let apiInstance = new Systemproto.OrganizationServiceApi();
+// Configure API key authorization: BearerAuth
+let BearerAuth = defaultClient.authentications['BearerAuth'];
+BearerAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerAuth.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: OAuth2
+let OAuth2 = defaultClient.authentications['OAuth2'];
+OAuth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new FeatureFlag.OrganizationServiceApi();
 let id = "id_example"; // String | 
 let opts = { 
   'name': "name_example" // String | 
@@ -131,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -146,10 +179,21 @@ No authorization required
 
 ### Example
 ```javascript
-import {Systemproto} from 'systemproto';
+import {FeatureFlag} from 'feature_flag';
+let defaultClient = FeatureFlag.ApiClient.instance;
 
-let apiInstance = new Systemproto.OrganizationServiceApi();
-let body = new Systemproto.V1Organization(); // V1Organization | 
+// Configure API key authorization: BearerAuth
+let BearerAuth = defaultClient.authentications['BearerAuth'];
+BearerAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerAuth.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: OAuth2
+let OAuth2 = defaultClient.authentications['OAuth2'];
+OAuth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new FeatureFlag.OrganizationServiceApi();
+let body = new FeatureFlag.V1Organization(); // V1Organization | 
 
 apiInstance.organizationServiceUpdateOrganization(body, (error, data, response) => {
   if (error) {
@@ -172,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

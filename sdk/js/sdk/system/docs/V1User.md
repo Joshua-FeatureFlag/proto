@@ -1,4 +1,4 @@
-# Systemproto.V1User
+# FeatureFlag.V1User
 
 ## Properties
 Name | Type | Description | Notes
