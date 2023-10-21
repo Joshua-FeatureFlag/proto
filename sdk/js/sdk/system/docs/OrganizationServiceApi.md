@@ -1,6 +1,6 @@
 # Systemproto.OrganizationServiceApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**organizationServiceDeleteOrganization**](OrganizationServiceApi.md#organizationServiceDeleteOrganization) | **DELETE** /v1/organization/delete/{id} | 
 [**organizationServiceGetOrganization**](OrganizationServiceApi.md#organizationServiceGetOrganization) | **GET** /v1/organization/get/{id} | 
 [**organizationServiceUpdateOrganization**](OrganizationServiceApi.md#organizationServiceUpdateOrganization) | **PUT** /v1/organization/update | 
-
 
 <a name="organizationServiceCreateOrganization"></a>
 # **organizationServiceCreateOrganization**
@@ -18,21 +17,18 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.OrganizationServiceApi();
+let apiInstance = new Systemproto.OrganizationServiceApi();
+let body = new Systemproto.V1Organization(); // V1Organization | 
 
-var body = new Systemproto.V1Organization(); // V1Organization | 
-
-
-var callback = function(error, data, response) {
+apiInstance.organizationServiceCreateOrganization(body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.organizationServiceCreateOrganization(body, callback);
+});
 ```
 
 ### Parameters
@@ -62,24 +58,20 @@ No authorization required
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.OrganizationServiceApi();
-
-var id = "id_example"; // String | 
-
-var opts = { 
+let apiInstance = new Systemproto.OrganizationServiceApi();
+let id = "id_example"; // String | 
+let opts = { 
   'name': "name_example" // String | 
 };
-
-var callback = function(error, data, response) {
+apiInstance.organizationServiceDeleteOrganization(id, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.organizationServiceDeleteOrganization(id, opts, callback);
+});
 ```
 
 ### Parameters
@@ -99,7 +91,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="organizationServiceGetOrganization"></a>
@@ -110,24 +102,20 @@ No authorization required
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.OrganizationServiceApi();
-
-var id = "id_example"; // String | 
-
-var opts = { 
+let apiInstance = new Systemproto.OrganizationServiceApi();
+let id = "id_example"; // String | 
+let opts = { 
   'name': "name_example" // String | 
 };
-
-var callback = function(error, data, response) {
+apiInstance.organizationServiceGetOrganization(id, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.organizationServiceGetOrganization(id, opts, callback);
+});
 ```
 
 ### Parameters
@@ -147,7 +135,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="organizationServiceUpdateOrganization"></a>
@@ -158,21 +146,18 @@ No authorization required
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.OrganizationServiceApi();
+let apiInstance = new Systemproto.OrganizationServiceApi();
+let body = new Systemproto.V1Organization(); // V1Organization | 
 
-var body = new Systemproto.V1Organization(); // V1Organization | 
-
-
-var callback = function(error, data, response) {
+apiInstance.organizationServiceUpdateOrganization(body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.organizationServiceUpdateOrganization(body, callback);
+});
 ```
 
 ### Parameters

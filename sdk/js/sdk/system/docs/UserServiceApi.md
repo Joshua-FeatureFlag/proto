@@ -1,6 +1,6 @@
 # Systemproto.UserServiceApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**userServiceDeleteUser**](UserServiceApi.md#userServiceDeleteUser) | **DELETE** /v1/user/delete/{id} | 
 [**userServiceGetUser**](UserServiceApi.md#userServiceGetUser) | **GET** /v1/user/{id} | 
 [**userServiceUpdateUser**](UserServiceApi.md#userServiceUpdateUser) | **PUT** /v1/user/update | 
-
 
 <a name="userServiceCreateUser"></a>
 # **userServiceCreateUser**
@@ -18,21 +17,18 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.UserServiceApi();
+let apiInstance = new Systemproto.UserServiceApi();
+let body = new Systemproto.V1User(); // V1User | 
 
-var body = new Systemproto.V1User(); // V1User | 
-
-
-var callback = function(error, data, response) {
+apiInstance.userServiceCreateUser(body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.userServiceCreateUser(body, callback);
+});
 ```
 
 ### Parameters
@@ -62,25 +58,21 @@ No authorization required
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.UserServiceApi();
-
-var id = "id_example"; // String | 
-
-var opts = { 
+let apiInstance = new Systemproto.UserServiceApi();
+let id = "id_example"; // String | 
+let opts = { 
   'name': "name_example", // String | 
   'organizationId': "organizationId_example" // String | 
 };
-
-var callback = function(error, data, response) {
+apiInstance.userServiceDeleteUser(id, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.userServiceDeleteUser(id, opts, callback);
+});
 ```
 
 ### Parameters
@@ -101,7 +93,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="userServiceGetUser"></a>
@@ -112,25 +104,21 @@ No authorization required
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.UserServiceApi();
-
-var id = "id_example"; // String | 
-
-var opts = { 
+let apiInstance = new Systemproto.UserServiceApi();
+let id = "id_example"; // String | 
+let opts = { 
   'name': "name_example", // String | 
   'organizationId': "organizationId_example" // String | 
 };
-
-var callback = function(error, data, response) {
+apiInstance.userServiceGetUser(id, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.userServiceGetUser(id, opts, callback);
+});
 ```
 
 ### Parameters
@@ -151,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="userServiceUpdateUser"></a>
@@ -162,21 +150,18 @@ No authorization required
 
 ### Example
 ```javascript
-var Systemproto = require('systemproto');
+import {Systemproto} from 'systemproto';
 
-var apiInstance = new Systemproto.UserServiceApi();
+let apiInstance = new Systemproto.UserServiceApi();
+let body = new Systemproto.V1User(); // V1User | 
 
-var body = new Systemproto.V1User(); // V1User | 
-
-
-var callback = function(error, data, response) {
+apiInstance.userServiceUpdateUser(body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.userServiceUpdateUser(body, callback);
+});
 ```
 
 ### Parameters
