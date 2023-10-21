@@ -1,8 +1,8 @@
 syntax = "proto3";
+package system.admin.v1;
+option go_package = "github.com/Joshua-FeatureFlag/proto/gen/go/system/admin/v1";
 
-package system;
-
-option go_package = "github.com/Joshua-FeatureFlag/proto/system;system";
+import "google/api/annotations.proto";
 
 message User {
   int64 id = 1;
@@ -17,15 +17,51 @@ message Organization {
 }
 
 service UserService {
-  rpc CreateUser (User) returns (User);
-  rpc GetUser (User) returns (User);
-  rpc UpdateUser (User) returns (User);
-  rpc DeleteUser (User) returns (User);
+  rpc CreateUser (User) returns (User){
+        option (google.api.http) = {
+            post: "/v1/user/create"
+            body: "*"
+        };
+  };
+  rpc GetUser (User) returns (User){
+        option (google.api.http) = {
+            get: "/v1/user/{id}"
+        };
+  };
+  rpc UpdateUser (User) returns (User){
+        option (google.api.http) = {
+            put: "/v1/user/update"
+            body: "*"
+        };
+  };
+  rpc DeleteUser (User) returns (User){
+        option (google.api.http) = {
+            delete: "/v1/user/delete/{id}"
+        };
+  };
 }
 
 service OrganizationService {
-  rpc CreateOrganization (Organization) returns (Organization);
-  rpc GetOrganization (Organization) returns (Organization);
-  rpc UpdateOrganization (Organization) returns (Organization);
-  rpc DeleteOrganization (Organization) returns (Organization);
+  rpc CreateOrganization (Organization) returns (Organization){
+        option (google.api.http) = {
+            post: "/v1/organization/create"
+            body: "*"
+        };
+  };
+  rpc GetOrganization (Organization) returns (Organization){
+        option (google.api.http) = {
+            get: "/v1/organization/get/{id}"
+        };
+  };
+  rpc UpdateOrganization (Organization) returns (Organization){
+        option (google.api.http) = {
+            put: "/v1/organization/update"
+            body: "*"
+        };
+  };
+  rpc DeleteOrganization (Organization) returns (Organization){
+        option (google.api.http) = {
+            delete: "/v1/organization/delete/{id}"
+        };
+  };
 }
